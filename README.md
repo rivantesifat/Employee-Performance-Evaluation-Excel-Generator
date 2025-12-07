@@ -71,9 +71,9 @@ Each Production employee is evaluated using:
 
 All positive performance indicators are normalized using **min–max scaling**:
 
-\[
-N(x_i) = \frac{x_i - \min(x)}{\max(x) - \min(x) + \varepsilon}
-\]
+Normalization formula:
+
+N(x_i) = (x_i - min(x)) / (max(x) - min(x) + ε)
 
 Where:
 
