@@ -78,7 +78,7 @@ N(x_i) = (x_i - min(x)) / (max(x) - min(x) + ε)
 Where:
 
 - \( x_i \) = raw metric value of employee *i*
-- \( \varepsilon \) = small constant to avoid division-by-zero
+- \( ε \) = small constant to avoid division-by-zero
 - Output range: \( [0,1] \)
 
 This removes unit dependency (hours, counts, ratios) and enables valid metric fusion.
