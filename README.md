@@ -93,15 +93,11 @@ Let:
 - \( L_i \) = leave hours of employee *i*
 - \( T \) = user-defined threshold (default = 50 hours)
 
-Then:
+Leave penalty function:
 
-\[
-\text{LeaveScore}_i =
-\begin{cases}
-1, & \text{if } L_i \le T \\\\
-1 - \frac{L_i - T}{\max(L - T) + \varepsilon}, & \text{if } L_i > T
-\end{cases}
-\]
+If L_i ≤ T → LeaveScore = 1  
+If L_i > T → LeaveScore = 1 − (L_i − T) / max(L_i − T)
+
 
 This ensures:
 - No penalty for acceptable leave usage
@@ -114,15 +110,13 @@ This ensures:
 
 Consistency is derived from **historical performance grades**:
 
-Let:
-- \( n \) = total number of recorded grades
-- \( f_{\max} \) = frequency of the most common grade
+**Consistency Index Formula:**
+C = f_max / n
 
-Then raw consistency is defined as:
+Where:
+- f_max = frequency of the most common grade  
+- n = total number of historical grades
 
-\[
-C = \frac{f_{\max}}{n}
-\]
 
 This captures **behavioral stability**, not just performance magnitude.
 
@@ -134,15 +128,16 @@ This value is then normalized using min–max scaling and treated as a positive 
 
 For each employee, the final score is computed as:
 
-\[
-\text{Final Score} = 20 \times \sum_{j=1}^{m} \left( w_j \cdot N_j \right)
-\]
+**Final Composite Score Formula:**
+
+Final Score = 20 × Σ (w_j × N_j)
 
 Where:
-- \( N_j \) = normalized value of metric *j*
-- \( w_j \) = user-defined metric weight
-- \( \sum w_j = 1 \)
-- Output scale: **0–20**
+- N_j = normalized value of metric j  
+- w_j = weight assigned to metric j  
+- Σ w_j = 1  
+- Output score range = 0–20
+
 
 This allows:
 
