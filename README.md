@@ -48,7 +48,7 @@ Each QC employee is evaluated using:
 | Distinct Tasks | Positive |
 | Projects Worked | Positive |
 | Total Tasks | Positive |
-| TL Score | Positive |
+| Team Lead Score | Positive |
 
 ### 2.2 Production Hand Metrics
 
